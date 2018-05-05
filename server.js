@@ -3,6 +3,7 @@
  * khang.nguyen@banvien.com
  */
 var express = require('express');
+var router = express.Router();
 var bodyParser = require('body-parser');
 var app = express();
 // express.static to serve static files
@@ -37,6 +38,18 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 	res.end(JSON.stringify(response));
 })
 
+// User roote
+app.route('/process')
+	.get(function (req, res) {
+	res.send('Get a random book')
+	})
+	.post(function (req, res) {
+		res.send('Add a book')
+	})
+	.put(function (req, res) {
+		res.send('Update the book')
+	})
+
 // This responds with "Hello World" on the homepage
 app.get('/', function (req, res) {
 	console.log("Got a GET request for the homepage");
@@ -65,6 +78,10 @@ app.get('/list_user', function (req, res) {
 app.get('/ab*cd', function(req, res) {
 	console.log("Got a GET request for /ab*cd");
 	res.send('Page Pattern Match');
+})
+
+app.get('/users/:userId/books/:bookId', function (req, res) {
+	res.send(req.params)
 })
 
 var server = app.listen(8081, function () {
