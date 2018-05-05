@@ -1,0 +1,18 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "Node Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "NodeJs"
+  ],
+  "author": "Khang Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.0.7",
+    "upper-case": "^1.1.3"
+  }
+}
